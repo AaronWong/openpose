@@ -13,11 +13,13 @@ set -e
 # get input params
 input_image_dir=$1
 output_image_dir=$2
+num_gpu=$3
 
 # update
-cd ..
 git pull
 
 # hand kp detection
-cd /examples/user_code/
-python3 hand_from_images.py --input_dir $input_image_dir --output_dir $output_image_dir
+python3 ./examples/user_code/hand_from_images.py \
+    --input_dir $input_image_dir \
+    --output_dir $output_image_dir \
+    --num_gpu $num_gpu
